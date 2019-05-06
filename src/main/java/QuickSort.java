@@ -31,11 +31,30 @@ public class QuickSort {
     }
 
 
+    //找出第N大的元素
+    public static int findMaxN(int[] a, int n) {
+        int position = partition(a, 0, a.length - 1);
+
+        while (position + 1 != n) {
+
+            if (position + 1 > n) {
+                position = partition(a, 0, position - 1);
+            } else {
+                position = partition(a, position + 1, a.length - 1);
+            }
+        }
+
+        return a[position];
+    }
+
+
     public static void main(String[] args) {
         int[] a = new int[]{4, 2, 8, 78, 70, 9, 20, 10};
         quickSortInternally(a, 0, 7);
         for (int i = 0; i < a.length; i++) {
-            System.out.println(a[i]);
+            System.out.print(a[i] + " ");
         }
+        System.out.println();
+        System.out.println(findMaxN(a, 3));
     }
 }
