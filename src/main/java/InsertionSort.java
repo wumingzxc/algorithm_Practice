@@ -1,9 +1,9 @@
-public class SolutionArray {
+public class InsertionSort {
 
 
-    // 插入排序，a表示数组，n表示数组大小
+    // 插入排序 升序
     public static void insertionSort(int[] a) {
-        if (a == null || a.length <= 1){
+        if (a == null || a.length <= 1) {
             return;
         }
         long length = a.length;
@@ -16,20 +16,22 @@ public class SolutionArray {
             for (; j >= 0; j--) {
                 //如果大于被比较值，则往后移动
                 if (a[j] > value) {
-                    a[j+1] = a[j];
-                }else{
+                    a[j + 1] = a[j];
+                } else {
                     break;
                 }
             }
             //保存被覆盖的值
-            a[j+1] = value;
+            a[j + 1] = value;
         }
     }
 
-
     public static void main(String[] args) {
 
-        insertionSort(new int[]{4,2,8,7,2,3,89});
+        int[] a = new int[]{4, 2, 8, 78, 70, 9, 20, 10};
+        insertionSort(a);
+        for (int i = 0; i < a.length; i++) {
+            System.out.println(a[i]);
+        }
     }
-
 }
